@@ -1,0 +1,28 @@
+<%= form_with(model: @apple, local: true,url: choose_new_or_edit) do |form| %>
+  <% if @apple.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @apple.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @apple.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="apple_title">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="apple_title">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="apple_title">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
